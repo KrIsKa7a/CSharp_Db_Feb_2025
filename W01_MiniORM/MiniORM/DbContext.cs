@@ -1,5 +1,4 @@
-﻿// ReSharper disable PossibleMultipleEnumeration
-namespace MiniORM
+﻿namespace MiniORM
 {
     using System.Collections;
     using System.ComponentModel.DataAnnotations;
@@ -8,18 +7,18 @@ namespace MiniORM
 
     using Microsoft.Data.SqlClient;
 
-    using static ErrorMessages;
+    using Exceptions;
 
     public class DbContext
     {
-        private readonly DatabaseConnection dbConnection;
-        private readonly IDictionary<Type, PropertyInfo> dbSetProperties;
+        private readonly DatabaseConnection _dbConnection;
+        private readonly IDictionary<Type, PropertyInfo> _dbSetProperties;
 
         protected DbContext(string connectionString)
         {
-            this.dbConnection = new DatabaseConnection(connectionString);
-            this.dbSetProperties = this.DiscoverDbSets();
-            using (new ConnectionManager(this.dbConnection))
+            this._dbConnection = new DatabaseConnection(connectionString);
+            this._dbSetProperties = this.DiscoverDbSets();
+            using (new ConnectionManager(this._dbConnection))
             {
                 this.InitializeDbSets();
             }
@@ -47,30 +46,36 @@ namespace MiniORM
 
         public void SaveChanges()
         {
-            IEnumerable<object> dbSetsObjects = this.dbSetProperties
+            IEnumerable<object> dbSetsObjects = this._dbSetProperties
                 .Select(edb => edb.Value.GetValue(this)!)
                 .ToArray();
+
             foreach (IEnumerable<object> dbSet in dbSetsObjects)
             {
                 IEnumerable<object> invalidEntities = dbSet
                     .Where(e => !IsObjectValid(e))
                     .ToArray();
+
                 if (invalidEntities.Any())
                 {
-                    throw new InvalidOperationException(String.Format(InvalidEntitiesInDbSetMessage,
+                    throw new InvalidOperationException(String.Format(ErrorMessages.InvalidEntitiesInDbSetMessage,
                         invalidEntities.Count(), dbSet.GetType().Name));
                 }
             }
 
-            using (new ConnectionManager(this.dbConnection))
+            using (new ConnectionManager(this._dbConnection))
             {
-                using SqlTransaction transaction = this.dbConnection
+                using SqlTransaction transaction = this._dbConnection
                     .StartTransaction();
+
                 foreach (IEnumerable dbSet in dbSetsObjects)
                 {
+                    Type dbSetType = dbSet.GetType();
+                    Type entityType = dbSetType.GetGenericArguments()[0];
+
                     MethodInfo persistMethod = typeof(DbContext)
-                        .GetMethod("Persist", BindingFlags.NonPublic | BindingFlags.Instance)
-                        .MakeGenericMethod(dbSet.GetType());
+                        .GetMethod("Persist", BindingFlags.NonPublic | BindingFlags.Instance)!
+                        .MakeGenericMethod(entityType);
 
                     try
                     {
@@ -78,8 +83,7 @@ namespace MiniORM
                         {
                             persistMethod.Invoke(this, new object[] { dbSet });
                         }
-                        catch (TargetInvocationException tie) 
-                            when (tie.InnerException != null)
+                        catch (TargetInvocationException tie) when (tie.InnerException != null)
                         {
                             throw tie.InnerException;
                         }
@@ -90,9 +94,9 @@ namespace MiniORM
                         transaction.Rollback();
                         throw;
                     }
-
-                    transaction.Commit();
                 }
+
+                transaction.Commit();
             }
         }
 
@@ -102,7 +106,7 @@ namespace MiniORM
             ICollection<ValidationResult> validationErrors = new List<ValidationResult>();
 
             return Validator
-                .TryValidateObject(obj, validationContext, validationErrors, true);
+                        .TryValidateObject(obj, validationContext, validationErrors, true);
         }
 
         private IDictionary<Type, PropertyInfo> DiscoverDbSets()
@@ -115,7 +119,7 @@ namespace MiniORM
 
         private void InitializeDbSets()
         {
-            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in dbSetProperties)
+            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in _dbSetProperties)
             {
                 Type dbSetType = dbSetKvp.Key;
                 PropertyInfo dbSetProperty = dbSetKvp.Value;
@@ -123,13 +127,14 @@ namespace MiniORM
                 MethodInfo populateDbSetMethodInfo = typeof(DbContext)
                     .GetMethod("PopulateDbSet", BindingFlags.NonPublic | BindingFlags.Instance)!
                     .MakeGenericMethod(dbSetType);
+
                 populateDbSetMethodInfo.Invoke(this, new object?[] { dbSetProperty });
             }
         }
 
         private void MapAllRelations()
         {
-            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in dbSetProperties)
+            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in _dbSetProperties)
             {
                 Type dbSetEntityType = dbSetKvp.Key;
                 PropertyInfo dbSetPropertyInfo = dbSetKvp.Value;
@@ -142,7 +147,7 @@ namespace MiniORM
                 if (dbSetInstance == null)
                 {
                     throw new ArgumentNullException(dbSetPropertyInfo.Name,
-                        String.Format(NullDbSetMessage, dbSetPropertyInfo.Name));
+                        String.Format(ErrorMessages.NullDbSetMessage, dbSetPropertyInfo.Name));
                 }
 
                 mapRelationsGenericMethodInfo.Invoke(this, new object?[] { dbSetInstance });
@@ -153,12 +158,12 @@ namespace MiniORM
             where TEntity : class, new()
         {
             string tableName = this.GetTableName(typeof(TEntity));
-            IEnumerable<string> columnNames = this.dbConnection
+            IEnumerable<string> columnNames = this._dbConnection
                 .FetchColumnNames(tableName);
 
             if (dbSet.ChangeTracker.Added.Any())
             {
-                this.dbConnection
+                this._dbConnection
                     .InsertEntities(dbSet.ChangeTracker.Added, tableName, columnNames.ToArray());
             }
 
@@ -167,13 +172,13 @@ namespace MiniORM
                 .GetModifiedEntities(dbSet);
             if (modifiedEntities.Any())
             {
-                this.dbConnection
+                this._dbConnection
                     .UpdateEntities(modifiedEntities, tableName, columnNames.ToArray());
             }
 
             if (dbSet.ChangeTracker.Removed.Any())
             {
-                this.dbConnection
+                this._dbConnection
                     .DeleteEntities(dbSet.ChangeTracker.Removed, tableName, columnNames.ToArray());
             }
         }
@@ -193,13 +198,13 @@ namespace MiniORM
             IEnumerable<string> columnNames = this.GetEntityColumnNames(tableType);
             string tableName = this.GetTableName(tableType);
 
-            return this.dbConnection.FetchResultSet<TEntity>(tableName, columnNames.ToArray());
+            return this._dbConnection.FetchResultSet<TEntity>(tableName, columnNames.ToArray());
         }
 
         private IEnumerable<string> GetEntityColumnNames(Type entityType)
         {
             string tableName = this.GetTableName(entityType);
-            IEnumerable<string> tableColumnNames = this.dbConnection
+            IEnumerable<string> tableColumnNames = this._dbConnection
                 .FetchColumnNames(tableName);
 
             IEnumerable<string> entityColumnNames = entityType
@@ -218,7 +223,7 @@ namespace MiniORM
             Attribute? tableNameAttr = Attribute.GetCustomAttribute(tableType, typeof(TableAttribute));
             if (tableNameAttr == null)
             {
-                return this.dbSetProperties[tableType].Name;
+                return this._dbSetProperties[tableType].Name;
             }
 
             if (tableNameAttr is TableAttribute tableNameAttrConf)
@@ -226,30 +231,53 @@ namespace MiniORM
                 return tableNameAttrConf.Name;
             }
 
-            throw new ArgumentException(String.Format(NoTableNameFound, this.dbSetProperties[tableType].Name));
+            throw new ArgumentException(String.Format(ErrorMessages.NoTableNameFound, this._dbSetProperties[tableType].Name));
         }
 
         private void MapRelations<TEntity>(DbSet<TEntity> dbSet)
             where TEntity : class, new()
         {
+            //TEntity = Department.
             Type entityType = typeof(TEntity);
 
-            this.MapNavigationProperties(dbSet);
+            //We map all navigation properties.
+            MapNavigationProperties(dbSet);
 
-            IEnumerable<PropertyInfo> entityCollections = entityType
-                .GetProperties()
-                .Where(pi => pi.PropertyType.IsGenericType &&
-                             pi.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>));
-            foreach (PropertyInfo entityCollectionPropInfo in entityCollections)
+            foreach (PropertyInfo property in entityType.GetProperties())
             {
-                Type collectionEntityType = entityCollectionPropInfo
-                    .PropertyType
-                    .GenericTypeArguments
-                    .First();
-                MethodInfo mapCollectionGenMethodInfo = typeof(DbContext)
+                string typeName = property.PropertyType.IsGenericType && property.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>)
+                    ? $"ICollection<{property.PropertyType.GetGenericArguments()[0].Name}>"
+                    : property.PropertyType.Name;
+
+                Console.WriteLine($"Property: {property.Name} | Type: {typeName}");
+                Console.WriteLine("---------------------------------------------------------------");
+            }
+
+            //Getting all the collections, whose generic type is ICollection ->
+            //Meaning: One department can have more than one Employee => inside the Department we have
+            //ICollection<Employee>, that is what we are looking for.
+
+            var collections = entityType
+                .GetProperties()
+                .Where(pi =>
+                    pi.PropertyType.IsGenericType &&
+                    pi.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>))
+                .ToArray();
+
+            foreach (PropertyInfo collection in collections)
+            {
+                //Taking the generic type arguments the current collection has ->
+                //if we take the example with ICollection<Employee> => the generic argument would be 'Employee'.
+                //We take only the first one, because we are 100% sure only one argument will be provided.
+                Type collectionType = collection.PropertyType.GenericTypeArguments.First();
+
+                //Creating a generic instance of the 'MapCollection' method of type <Department, Employee>
+                MethodInfo mapCollectionGeneric = typeof(DbContext)
                     .GetMethod("MapCollection", BindingFlags.Instance | BindingFlags.NonPublic)!
-                    .MakeGenericMethod(collectionEntityType);
-                mapCollectionGenMethodInfo.Invoke(this, new object?[] { dbSet, entityCollectionPropInfo });
+                    .MakeGenericMethod(entityType, collectionType);
+
+                //Dynamically invoking the method
+                mapCollectionGeneric.Invoke(this, new object[] { dbSet, collection });
             }
         }
 
@@ -261,6 +289,7 @@ namespace MiniORM
             IEnumerable<PropertyInfo> foreignKeys = entityType
                 .GetProperties()
                 .Where(pi => pi.HasAttribute<ForeignKeyAttribute>());
+
             foreach (PropertyInfo fkPropertyInfo in foreignKeys)
             {
                 string navigationPropName = fkPropertyInfo
@@ -268,18 +297,20 @@ namespace MiniORM
 
                 PropertyInfo? navigationPropertyInfo = entityType
                     .GetProperty(navigationPropName);
+
                 if (navigationPropertyInfo == null)
                 {
-                    throw new ArgumentException(String.Format(InvalidNavigationPropertyName,
+                    throw new ArgumentException(String.Format(ErrorMessages.InvalidNavigationPropertyName,
                         fkPropertyInfo.Name, navigationPropName));
                 }
 
-                object? navDbSetInstance = 
-                    this.dbSetProperties[navigationPropertyInfo.PropertyType]
+                object? navDbSetInstance =
+                    this._dbSetProperties[navigationPropertyInfo.PropertyType]
                         .GetValue(this);
+
                 if (navDbSetInstance == null)
                 {
-                    throw new ArgumentException(String.Format(NavPropertyWithoutDbSetMessage,
+                    throw new ArgumentException(String.Format(ErrorMessages.NavPropertyWithoutDbSetMessage,
                         navigationPropName, navigationPropertyInfo.PropertyType));
                 }
 
@@ -287,6 +318,7 @@ namespace MiniORM
                     .PropertyType
                     .GetProperties()
                     .First(pi => pi.HasAttribute<KeyAttribute>());
+
                 foreach (TEntity entity in dbSet)
                 {
                     object? fkValue = fkPropertyInfo.GetValue(entity);
@@ -317,13 +349,12 @@ namespace MiniORM
                 .Where(pi => pi.HasAttribute<KeyAttribute>());
 
             PropertyInfo primaryKey = collectionPrimaryKeys.First();
+
             PropertyInfo foreignKey = entityType
                 .GetProperties()
                 .First(pi => pi.HasAttribute<KeyAttribute>());
-
             if (collectionPrimaryKeys.Count() >= 2)
             {
-                // Many-To-Many
                 primaryKey = collectionType
                     .GetProperties()
                     .First(pi => collectionType
@@ -332,14 +363,18 @@ namespace MiniORM
             }
 
             DbSet<TCollection> navDbSet = (DbSet<TCollection>)
-                this.dbSetProperties[collectionType]
+                this._dbSetProperties[collectionType]
                     .GetValue(this)!;
+
             foreach (TDbSet dbSetEntity in dbSet)
             {
                 object pkValue = foreignKey.GetValue(dbSetEntity)!;
                 IEnumerable<TCollection> navCollectionEntities = navDbSet
                     .Where(navEntity => primaryKey.GetValue(navEntity)!.Equals(pkValue));
-                ReflectionHelper.ReplaceBackingField(dbSetEntity, collectionPropInfo.Name, navCollectionEntities);
+
+                var collectionEntitiesAsList = navCollectionEntities.ToList();
+
+                ReflectionHelper.ReplaceBackingField(dbSetEntity, collectionPropInfo.Name, collectionEntitiesAsList);
             }
         }
     }

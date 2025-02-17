@@ -1,31 +1,31 @@
 ﻿namespace MiniORM
 {
+    using MiniORM.Exceptions;
     using System.ComponentModel.DataAnnotations;
     using System.Reflection;
 
-    public class ChangeTracker<T>
-        where T : class, new()
+    public class ChangeTracker<T> where T : class, new()
     {
-        private readonly ICollection<T> allEntities;
-        private readonly ICollection<T> added;
-        private readonly ICollection<T> removed;
+        private readonly ICollection<T> _allEntities;
+        private readonly ICollection<T> _added;
+        private readonly ICollection<T> _removed;
 
         public ChangeTracker(IEnumerable<T> entities)
         {
-            this.allEntities = this.CloneEntities(entities);
+            this._allEntities = this.CloneEntities(entities);
 
-            this.added = new HashSet<T>();
-            this.removed = new HashSet<T>();
+            this._added = new HashSet<T>();
+            this._removed = new HashSet<T>();
         }
 
         public IReadOnlyCollection<T> AllEntities
-            => this.allEntities.ToList().AsReadOnly();
+            => this._allEntities.ToList().AsReadOnly();
 
         public IReadOnlyCollection<T> Added
-            => this.added.ToList().AsReadOnly();
+            => this._added.ToList().AsReadOnly();
 
         public IReadOnlyCollection<T> Removed
-            => this.removed.ToList().AsReadOnly();
+            => this._removed.ToList().AsReadOnly();
 
         /// <summary>
         /// This method tracks newly added entity records by adding them to the "added" collection.
@@ -34,7 +34,7 @@
         /// <param name="entity">New record of entity</param>
         public void Add(T entity)
         {
-            this.added.Add(entity);
+            this._added.Add(entity);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@
         /// <param name="entity"></param>
         public void Remove(T entity)
         {
-            this.removed.Add(entity);
+            this._removed.Add(entity);
         }
 
         public IEnumerable<T> GetModifiedEntities(DbSet<T> dbSet)
@@ -53,7 +53,7 @@
                 .GetProperties()
                 .Where(pi => pi.HasAttribute<KeyAttribute>())
                 .ToArray();
-            foreach (T proxyEntity in this.allEntities)
+            foreach (T proxyEntity in this._allEntities)
             {
                 IEnumerable<object> proxyPrimaryKeys =
                     GetPrimaryKeyValues(primaryKeys, proxyEntity);
@@ -79,7 +79,7 @@
                 object? primaryKeyValue = primaryKeyInfo.GetValue(entity);
                 if (primaryKeyValue == null)
                 {
-                    throw new ArgumentNullException(primaryKeyInfo.Name, 
+                    throw new ArgumentNullException(primaryKeyInfo.Name,
                         ErrorMessages.PrimaryKeyNullErrorMessage);
                 }
 

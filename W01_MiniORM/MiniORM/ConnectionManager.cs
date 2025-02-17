@@ -6,18 +6,18 @@
     /// </summary>
     internal class ConnectionManager : IDisposable
     {
-        private readonly DatabaseConnection connection;
+        private readonly DatabaseConnection _connection;
 
         public ConnectionManager(DatabaseConnection connection)
         {
-            this.connection = connection;
+            this._connection = connection;
 
-            this.connection.Open();
+            this._connection.Open();
         }
 
         public void Dispose()
         {
-            this.connection.Close();
+            this._connection.Close();
         }
     }
 }

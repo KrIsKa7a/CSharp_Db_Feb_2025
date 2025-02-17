@@ -1,15 +1,14 @@
-﻿// ReSharper disable PossibleMultipleEnumeration
-namespace MiniORM
+﻿namespace MiniORM
 {
     using System.Collections;
+    using Exceptions;
 
-    public class DbSet<TEntity> : ICollection<TEntity>
-        where TEntity : class, new()
+    public class DbSet<TEntity> : ICollection<TEntity> where TEntity : class, new()
     {
         internal DbSet(IEnumerable<TEntity> entities)
         {
             this.ChangeTracker = new ChangeTracker<TEntity>(entities);
-            this.Entities = entities.ToArray();
+            this.Entities = entities.ToList();
         }
 
         internal ChangeTracker<TEntity> ChangeTracker { get; set; }
@@ -24,6 +23,11 @@ namespace MiniORM
 
         public void Add(TEntity item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException(ErrorMessages.ItemNotNull);
+            }
+
             this.Entities.Add(item);
             this.ChangeTracker.Add(item); // Notification to the change tracker about the added entity record
         }
