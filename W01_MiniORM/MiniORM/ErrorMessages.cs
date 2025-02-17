@@ -2,6 +2,9 @@
 {
     public static class ErrorMessages
     {
+        public static string ItemNotNull =
+            @"Item cannot be null";
+
         public static string PrimaryKeyNullErrorMessage =
             @"The primary keys cannot have null values!";
 
