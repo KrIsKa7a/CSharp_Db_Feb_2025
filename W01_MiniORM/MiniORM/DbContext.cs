@@ -1,4 +1,5 @@
-﻿namespace MiniORM
+﻿// ReSharper disable PossibleMultipleEnumeration
+namespace MiniORM
 {
     using System.Collections;
     using System.ComponentModel.DataAnnotations;
@@ -7,18 +8,18 @@
 
     using Microsoft.Data.SqlClient;
 
-    using Exceptions;
+    using static ErrorMessages;
 
     public class DbContext
     {
-        private readonly DatabaseConnection _dbConnection;
-        private readonly IDictionary<Type, PropertyInfo> _dbSetProperties;
+        private readonly DatabaseConnection dbConnection;
+        private readonly IDictionary<Type, PropertyInfo> dbSetProperties;
 
         protected DbContext(string connectionString)
         {
-            this._dbConnection = new DatabaseConnection(connectionString);
-            this._dbSetProperties = this.DiscoverDbSets();
-            using (new ConnectionManager(this._dbConnection))
+            this.dbConnection = new DatabaseConnection(connectionString);
+            this.dbSetProperties = this.DiscoverDbSets();
+            using (new ConnectionManager(this.dbConnection))
             {
                 this.InitializeDbSets();
             }
@@ -46,26 +47,24 @@
 
         public void SaveChanges()
         {
-            IEnumerable<object> dbSetsObjects = this._dbSetProperties
+            IEnumerable<object> dbSetsObjects = this.dbSetProperties
                 .Select(edb => edb.Value.GetValue(this)!)
                 .ToArray();
-
             foreach (IEnumerable<object> dbSet in dbSetsObjects)
             {
                 IEnumerable<object> invalidEntities = dbSet
                     .Where(e => !IsObjectValid(e))
                     .ToArray();
-
                 if (invalidEntities.Any())
                 {
-                    throw new InvalidOperationException(String.Format(ErrorMessages.InvalidEntitiesInDbSetMessage,
+                    throw new InvalidOperationException(String.Format(InvalidEntitiesInDbSetMessage,
                         invalidEntities.Count(), dbSet.GetType().Name));
                 }
             }
 
-            using (new ConnectionManager(this._dbConnection))
+            using (new ConnectionManager(this.dbConnection))
             {
-                using SqlTransaction transaction = this._dbConnection
+                using SqlTransaction transaction = this.dbConnection
                     .StartTransaction();
 
                 foreach (IEnumerable dbSet in dbSetsObjects)
@@ -106,7 +105,7 @@
             ICollection<ValidationResult> validationErrors = new List<ValidationResult>();
 
             return Validator
-                        .TryValidateObject(obj, validationContext, validationErrors, true);
+                .TryValidateObject(obj, validationContext, validationErrors, true);
         }
 
         private IDictionary<Type, PropertyInfo> DiscoverDbSets()
@@ -119,7 +118,7 @@
 
         private void InitializeDbSets()
         {
-            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in _dbSetProperties)
+            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in dbSetProperties)
             {
                 Type dbSetType = dbSetKvp.Key;
                 PropertyInfo dbSetProperty = dbSetKvp.Value;
@@ -127,14 +126,13 @@
                 MethodInfo populateDbSetMethodInfo = typeof(DbContext)
                     .GetMethod("PopulateDbSet", BindingFlags.NonPublic | BindingFlags.Instance)!
                     .MakeGenericMethod(dbSetType);
-
                 populateDbSetMethodInfo.Invoke(this, new object?[] { dbSetProperty });
             }
         }
 
         private void MapAllRelations()
         {
-            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in _dbSetProperties)
+            foreach (KeyValuePair<Type, PropertyInfo> dbSetKvp in dbSetProperties)
             {
                 Type dbSetEntityType = dbSetKvp.Key;
                 PropertyInfo dbSetPropertyInfo = dbSetKvp.Value;
@@ -147,7 +145,7 @@
                 if (dbSetInstance == null)
                 {
                     throw new ArgumentNullException(dbSetPropertyInfo.Name,
-                        String.Format(ErrorMessages.NullDbSetMessage, dbSetPropertyInfo.Name));
+                        String.Format(NullDbSetMessage, dbSetPropertyInfo.Name));
                 }
 
                 mapRelationsGenericMethodInfo.Invoke(this, new object?[] { dbSetInstance });
@@ -158,12 +156,12 @@
             where TEntity : class, new()
         {
             string tableName = this.GetTableName(typeof(TEntity));
-            IEnumerable<string> columnNames = this._dbConnection
+            IEnumerable<string> columnNames = this.dbConnection
                 .FetchColumnNames(tableName);
 
             if (dbSet.ChangeTracker.Added.Any())
             {
-                this._dbConnection
+                this.dbConnection
                     .InsertEntities(dbSet.ChangeTracker.Added, tableName, columnNames.ToArray());
             }
 
@@ -172,13 +170,13 @@
                 .GetModifiedEntities(dbSet);
             if (modifiedEntities.Any())
             {
-                this._dbConnection
+                this.dbConnection
                     .UpdateEntities(modifiedEntities, tableName, columnNames.ToArray());
             }
 
             if (dbSet.ChangeTracker.Removed.Any())
             {
-                this._dbConnection
+                this.dbConnection
                     .DeleteEntities(dbSet.ChangeTracker.Removed, tableName, columnNames.ToArray());
             }
         }
@@ -198,13 +196,13 @@
             IEnumerable<string> columnNames = this.GetEntityColumnNames(tableType);
             string tableName = this.GetTableName(tableType);
 
-            return this._dbConnection.FetchResultSet<TEntity>(tableName, columnNames.ToArray());
+            return this.dbConnection.FetchResultSet<TEntity>(tableName, columnNames.ToArray());
         }
 
         private IEnumerable<string> GetEntityColumnNames(Type entityType)
         {
             string tableName = this.GetTableName(entityType);
-            IEnumerable<string> tableColumnNames = this._dbConnection
+            IEnumerable<string> tableColumnNames = this.dbConnection
                 .FetchColumnNames(tableName);
 
             IEnumerable<string> entityColumnNames = entityType
@@ -223,7 +221,7 @@
             Attribute? tableNameAttr = Attribute.GetCustomAttribute(tableType, typeof(TableAttribute));
             if (tableNameAttr == null)
             {
-                return this._dbSetProperties[tableType].Name;
+                return this.dbSetProperties[tableType].Name;
             }
 
             if (tableNameAttr is TableAttribute tableNameAttrConf)
@@ -231,7 +229,7 @@
                 return tableNameAttrConf.Name;
             }
 
-            throw new ArgumentException(String.Format(ErrorMessages.NoTableNameFound, this._dbSetProperties[tableType].Name));
+            throw new ArgumentException(String.Format(NoTableNameFound, this.dbSetProperties[tableType].Name));
         }
 
         private void MapRelations<TEntity>(DbSet<TEntity> dbSet)
@@ -289,7 +287,6 @@
             IEnumerable<PropertyInfo> foreignKeys = entityType
                 .GetProperties()
                 .Where(pi => pi.HasAttribute<ForeignKeyAttribute>());
-
             foreach (PropertyInfo fkPropertyInfo in foreignKeys)
             {
                 string navigationPropName = fkPropertyInfo
@@ -297,20 +294,18 @@
 
                 PropertyInfo? navigationPropertyInfo = entityType
                     .GetProperty(navigationPropName);
-
                 if (navigationPropertyInfo == null)
                 {
-                    throw new ArgumentException(String.Format(ErrorMessages.InvalidNavigationPropertyName,
+                    throw new ArgumentException(String.Format(InvalidNavigationPropertyName,
                         fkPropertyInfo.Name, navigationPropName));
                 }
 
-                object? navDbSetInstance =
-                    this._dbSetProperties[navigationPropertyInfo.PropertyType]
+                object? navDbSetInstance = 
+                    this.dbSetProperties[navigationPropertyInfo.PropertyType]
                         .GetValue(this);
-
                 if (navDbSetInstance == null)
                 {
-                    throw new ArgumentException(String.Format(ErrorMessages.NavPropertyWithoutDbSetMessage,
+                    throw new ArgumentException(String.Format(NavPropertyWithoutDbSetMessage,
                         navigationPropName, navigationPropertyInfo.PropertyType));
                 }
 
@@ -318,7 +313,6 @@
                     .PropertyType
                     .GetProperties()
                     .First(pi => pi.HasAttribute<KeyAttribute>());
-
                 foreach (TEntity entity in dbSet)
                 {
                     object? fkValue = fkPropertyInfo.GetValue(entity);
@@ -363,7 +357,7 @@
             }
 
             DbSet<TCollection> navDbSet = (DbSet<TCollection>)
-                this._dbSetProperties[collectionType]
+                this.dbSetProperties[collectionType]
                     .GetValue(this)!;
 
             foreach (TDbSet dbSetEntity in dbSet)

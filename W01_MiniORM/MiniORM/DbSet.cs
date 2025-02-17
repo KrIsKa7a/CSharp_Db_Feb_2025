@@ -1,9 +1,10 @@
-﻿namespace MiniORM
+﻿// ReSharper disable PossibleMultipleEnumeration
+namespace MiniORM
 {
     using System.Collections;
-    using Exceptions;
 
-    public class DbSet<TEntity> : ICollection<TEntity> where TEntity : class, new()
+    public class DbSet<TEntity> : ICollection<TEntity>
+        where TEntity : class, new()
     {
         internal DbSet(IEnumerable<TEntity> entities)
         {
