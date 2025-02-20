@@ -5,5 +5,6 @@
 *Here you can find problem solutions for the following exercises:*
 1. [**ORM Fundamentals - Building own MiniORM**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/W01_MiniORM)
 2. [**Entity Framework Core Introduction**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/E01_EntityFrameworkCore_Introduction)
+3. [**Entity Relations**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/E02_EntityRelations)
 
 ***
