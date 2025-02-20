@@ -9,7 +9,7 @@ namespace MiniORM
         internal DbSet(IEnumerable<TEntity> entities)
         {
             this.ChangeTracker = new ChangeTracker<TEntity>(entities);
-            this.Entities = entities.ToArray();
+            this.Entities = entities.ToList();
         }
 
         internal ChangeTracker<TEntity> ChangeTracker { get; set; }
@@ -24,6 +24,11 @@ namespace MiniORM
 
         public void Add(TEntity item)
         {
+            if (item == null)
+            {
+                throw new ArgumentNullException("Item cannot be null");
+            }
+
             this.Entities.Add(item);
             this.ChangeTracker.Add(item); // Notification to the change tracker about the added entity record
         }

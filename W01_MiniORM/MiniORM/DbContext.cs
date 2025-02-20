@@ -50,14 +50,16 @@ namespace MiniORM
             IEnumerable<object> dbSetsObjects = this.dbSetProperties
                 .Select(edb => edb.Value.GetValue(this)!)
                 .ToArray();
+
             foreach (IEnumerable<object> dbSet in dbSetsObjects)
             {
                 IEnumerable<object> invalidEntities = dbSet
                     .Where(e => !IsObjectValid(e))
                     .ToArray();
+
                 if (invalidEntities.Any())
                 {
-                    throw new InvalidOperationException(String.Format(InvalidEntitiesInDbSetMessage,
+                    throw new InvalidOperationException(String.Format(ErrorMessages.InvalidEntitiesInDbSetMessage,
                         invalidEntities.Count(), dbSet.GetType().Name));
                 }
             }
@@ -66,11 +68,15 @@ namespace MiniORM
             {
                 using SqlTransaction transaction = this.dbConnection
                     .StartTransaction();
+
                 foreach (IEnumerable dbSet in dbSetsObjects)
                 {
+                    Type dbSetType = dbSet.GetType();
+                    Type entityType = dbSetType.GetGenericArguments()[0];
+
                     MethodInfo persistMethod = typeof(DbContext)
-                        .GetMethod("Persist", BindingFlags.NonPublic | BindingFlags.Instance)
-                        .MakeGenericMethod(dbSet.GetType());
+                        .GetMethod("Persist", BindingFlags.NonPublic | BindingFlags.Instance)!
+                        .MakeGenericMethod(entityType);
 
                     try
                     {
@@ -78,8 +84,7 @@ namespace MiniORM
                         {
                             persistMethod.Invoke(this, new object[] { dbSet });
                         }
-                        catch (TargetInvocationException tie) 
-                            when (tie.InnerException != null)
+                        catch (TargetInvocationException tie) when (tie.InnerException != null)
                         {
                             throw tie.InnerException;
                         }
@@ -90,9 +95,9 @@ namespace MiniORM
                         transaction.Rollback();
                         throw;
                     }
-
-                    transaction.Commit();
                 }
+
+                transaction.Commit();
             }
         }
 
@@ -236,20 +241,32 @@ namespace MiniORM
 
             this.MapNavigationProperties(dbSet);
 
-            IEnumerable<PropertyInfo> entityCollections = entityType
-                .GetProperties()
-                .Where(pi => pi.PropertyType.IsGenericType &&
-                             pi.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>));
-            foreach (PropertyInfo entityCollectionPropInfo in entityCollections)
+            foreach (PropertyInfo property in entityType.GetProperties())
             {
-                Type collectionEntityType = entityCollectionPropInfo
-                    .PropertyType
-                    .GenericTypeArguments
-                    .First();
-                MethodInfo mapCollectionGenMethodInfo = typeof(DbContext)
+                string typeName = property.PropertyType.IsGenericType && property.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>)
+                    ? $"ICollection<{property.PropertyType.GetGenericArguments()[0].Name}>"
+                    : property.PropertyType.Name;
+
+                Console.WriteLine($"Property: {property.Name} | Type: {typeName}");
+                Console.WriteLine("---------------------------------------------------------------");
+            }
+
+            var collections = entityType
+                .GetProperties()
+                .Where(pi =>
+                    pi.PropertyType.IsGenericType &&
+                    pi.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>))
+                .ToArray();
+
+            foreach (PropertyInfo collection in collections)
+            {
+                Type collectionType = collection.PropertyType.GenericTypeArguments.First();
+
+                MethodInfo mapCollectionGeneric = typeof(DbContext)
                     .GetMethod("MapCollection", BindingFlags.Instance | BindingFlags.NonPublic)!
-                    .MakeGenericMethod(collectionEntityType);
-                mapCollectionGenMethodInfo.Invoke(this, new object?[] { dbSet, entityCollectionPropInfo });
+                    .MakeGenericMethod(entityType, collectionType);
+
+                mapCollectionGeneric.Invoke(this, new object[] { dbSet, collection });
             }
         }
 
@@ -339,7 +356,9 @@ namespace MiniORM
                 object pkValue = foreignKey.GetValue(dbSetEntity)!;
                 IEnumerable<TCollection> navCollectionEntities = navDbSet
                     .Where(navEntity => primaryKey.GetValue(navEntity)!.Equals(pkValue));
-                ReflectionHelper.ReplaceBackingField(dbSetEntity, collectionPropInfo.Name, navCollectionEntities);
+
+                var collectionEntitiesAsList = navCollectionEntities.ToList();
+                ReflectionHelper.ReplaceBackingField(dbSetEntity, collectionPropInfo.Name, collectionEntitiesAsList);
             }
         }
     }
