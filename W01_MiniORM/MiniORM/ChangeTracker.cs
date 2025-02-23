@@ -3,6 +3,8 @@
     using System.ComponentModel.DataAnnotations;
     using System.Reflection;
 
+    using static ErrorMessages;
+
     public class ChangeTracker<T>
         where T : class, new()
     {
@@ -80,7 +82,7 @@
                 if (primaryKeyValue == null)
                 {
                     throw new ArgumentNullException(primaryKeyInfo.Name, 
-                        ErrorMessages.PrimaryKeyNullErrorMessage);
+                        PrimaryKeyNullErrorMessage);
                 }
 
                 primaryKeyValues.Add(primaryKeyValue);

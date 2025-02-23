@@ -99,12 +99,21 @@ namespace MiniORM
                     }
                     catch
                     {
-                        Console.WriteLine("Performing Rollback due to Exception!!!");
+                        Console.WriteLine(TransactionRollbackMessage);
                         transaction.Rollback();
                         throw;
                     }
 
+                }
+
+                try
+                {
                     transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(TransactionExceptionMessage);
+                    throw;
                 }
             }
         }
