@@ -261,7 +261,7 @@ namespace MiniORM
                     .First();
                 MethodInfo mapCollectionGenMethodInfo = typeof(DbContext)
                     .GetMethod("MapCollection", BindingFlags.Instance | BindingFlags.NonPublic)!
-                    .MakeGenericMethod(collectionEntityType);
+                    .MakeGenericMethod(entityType, collectionEntityType);
                 mapCollectionGenMethodInfo.Invoke(this, new object?[] { dbSet, entityCollectionPropInfo });
             }
         }
@@ -329,29 +329,27 @@ namespace MiniORM
                 .GetProperties()
                 .Where(pi => pi.HasAttribute<KeyAttribute>());
 
-            PropertyInfo primaryKey = collectionPrimaryKeys.First();
-            PropertyInfo foreignKey = entityType
+            PropertyInfo foreignKey  = collectionType
+                .GetProperties()
+                .First(pi => pi.HasAttribute<ForeignKeyAttribute>() &&
+                                        collectionType
+                                             .GetProperty(pi.GetCustomAttribute<ForeignKeyAttribute>()!.Name)!
+                                             .PropertyType == entityType);
+            PropertyInfo primaryKey = entityType
                 .GetProperties()
                 .First(pi => pi.HasAttribute<KeyAttribute>());
 
-            if (collectionPrimaryKeys.Count() >= 2)
-            {
-                // Many-To-Many
-                primaryKey = collectionType
-                    .GetProperties()
-                    .First(pi => collectionType
-                        .GetProperty(pi.GetCustomAttribute<ForeignKeyAttribute>()!.Name)!
-                        .PropertyType == entityType);
-            }
 
             DbSet<TCollection> navDbSet = (DbSet<TCollection>)
                 this.dbSetProperties[collectionType]
                     .GetValue(this)!;
             foreach (TDbSet dbSetEntity in dbSet)
             {
-                object pkValue = foreignKey.GetValue(dbSetEntity)!;
+                object pkValue = primaryKey.GetValue(dbSetEntity)!;
                 IEnumerable<TCollection> navCollectionEntities = navDbSet
-                    .Where(navEntity => primaryKey.GetValue(navEntity)!.Equals(pkValue));
+                    .Where(navEntity => foreignKey.GetValue(navEntity) != null &&
+                                                  foreignKey.GetValue(navEntity)!.Equals(pkValue))
+                    .ToArray();
                 ReflectionHelper.ReplaceBackingField(dbSetEntity, collectionPropInfo.Name, navCollectionEntities);
             }
         }
