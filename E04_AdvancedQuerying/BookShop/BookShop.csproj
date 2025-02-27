@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="6.103.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BookShop.Common\BookShop.Common.csproj" />
     <ProjectReference Include="..\BookShop.Data\BookShop.Data.csproj" />
     <ProjectReference Include="..\BookShop.Initializer\BookShop.Initializer.csproj" />
