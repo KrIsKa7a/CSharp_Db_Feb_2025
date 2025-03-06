@@ -9,5 +9,6 @@
 4. [**LINQ**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/E03_LINQ)
 5. [**Advanced Querying**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/E04_AdvancedQuerying)
 6. [**Migrations**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/E05_Migrations)
+7. [**JSON Processing**](https://github.com/KrIsKa7a/CSharp_Db_Feb_2025/tree/main/E06_JSON_Proccessing)
 
 ***
