@@ -1,0 +1,121 @@
+Successfully imported expense. Electricity Home, Amount: 120.50
+Successfully imported expense. Water Home, Amount: 50.50
+Invalid data format!
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Water Summer House, Amount: 10.50
+Successfully imported expense. Security Home, Amount: 50.00
+Invalid data format!
+Successfully imported expense. Gas Home, Amount: 350.20
+Successfully imported expense. Gas Office, Amount: 250.20
+Invalid data format!
+Successfully imported expense. Water Office, Amount: 10.80
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Successfully imported expense. Electricity Summer House, Amount: 27.50
+Invalid data format!
+Successfully imported expense. Internet Summer House, Amount: 20.00
+Successfully imported expense. Digital TV Home, Amount: 40.00
+Successfully imported expense. Security Summer House, Amount: 30.00
+Successfully imported expense. Electricity Home, Amount: 120.50
+Successfully imported expense. Water Home, Amount: 50.50
+Invalid data format!
+Successfully imported expense. Internet Home, Amount: 40.00
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Water Summer House, Amount: 10.50
+Invalid data format!
+Successfully imported expense. Security Office, Amount: 70.00
+Invalid data format!
+Successfully imported expense. Gas Office, Amount: 250.20
+Successfully imported expense. Electricity Office, Amount: 150.50
+Successfully imported expense. Water Office, Amount: 10.80
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Successfully imported expense. Electricity Summer House, Amount: 27.50
+Successfully imported expense. Water Summer House, Amount: 5.70
+Invalid data format!
+Successfully imported expense. Security Summer House, Amount: 30.00
+Invalid data format!
+Successfully imported expense. Water Home, Amount: 50.50
+Successfully imported expense. Internet Home, Amount: 40.00
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Water Summer House, Amount: 10.50
+Successfully imported expense. Security Home, Amount: 50.00
+Successfully imported expense. Security Office, Amount: 70.00
+Successfully imported expense. Gas Home, Amount: 350.20
+Successfully imported expense. Gas Office, Amount: 250.20
+Invalid data format!
+Invalid data format!
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Successfully imported expense. Electricity Summer House, Amount: 27.50
+Successfully imported expense. Water Summer House, Amount: 5.70
+Successfully imported expense. Cell Phone Personal, Amount: 20.00
+Successfully imported expense. Security Summer House, Amount: 30.00
+Invalid data format!
+Successfully imported expense. Water Home, Amount: 50.50
+Successfully imported expense. Internet Home, Amount: 40.00
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Water Summer House, Amount: 10.50
+Successfully imported expense. Security Home, Amount: 50.00
+Invalid data format!
+Successfully imported expense. Gas Home, Amount: 350.20
+Successfully imported expense. Gas Office, Amount: 250.20
+Successfully imported expense. Electricity Office, Amount: 150.50
+Successfully imported expense. Water Office, Amount: 10.80
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Invalid data format!
+Successfully imported expense. Water Summer House, Amount: 5.70
+Successfully imported expense. Internet Summer House, Amount: 20.00
+Successfully imported expense. Security Summer House, Amount: 30.00
+Successfully imported expense. Electricity Home, Amount: 120.50
+Successfully imported expense. Water Home, Amount: 50.50
+Invalid data format!
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Digital TV Home, Amount: 20.50
+Successfully imported expense. Security Home, Amount: 50.00
+Successfully imported expense. Security Office, Amount: 70.00
+Successfully imported expense. Gas Home, Amount: 350.20
+Successfully imported expense. Gas Office, Amount: 250.20
+Successfully imported expense. Electricity Office, Amount: 150.50
+Successfully imported expense. Water Office, Amount: 10.80
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Successfully imported expense. Electricity Summer House, Amount: 27.50
+Successfully imported expense. Water Summer House, Amount: 5.70
+Successfully imported expense. Internet Summer House, Amount: 20.00
+Successfully imported expense. Security Summer House, Amount: 30.00
+Successfully imported expense. Electricity Home, Amount: 120.50
+Invalid data format!
+Successfully imported expense. Water Home, Amount: 50.50
+Successfully imported expense. Internet Home, Amount: 40.00
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Water Summer House, Amount: 10.50
+Successfully imported expense. Security Home, Amount: 50.00
+Successfully imported expense. Security Office, Amount: 70.00
+Successfully imported expense. Gas Home, Amount: 350.20
+Successfully imported expense. Telephony, Amount: 250.00
+Successfully imported expense. Gas Office, Amount: 250.20
+Successfully imported expense. Electricity Office, Amount: 150.50
+Successfully imported expense. Water Office, Amount: 10.80
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Successfully imported expense. Electricity Summer House, Amount: 27.50
+Successfully imported expense. Water Summer House, Amount: 5.70
+Successfully imported expense. Internet Summer House, Amount: 20.00
+Successfully imported expense. Telephony, Amount: 80.00
+Successfully imported expense. Security Summer House, Amount: 30.00
+Successfully imported expense. Electricity Home, Amount: 120.50
+Successfully imported expense. Water Home, Amount: 50.50
+Successfully imported expense. Internet Home, Amount: 40.00
+Successfully imported expense. Internet Office, Amount: 70.00
+Successfully imported expense. Water Summer House, Amount: 10.50
+Successfully imported expense. Security Home, Amount: 50.00
+Successfully imported expense. Security Office, Amount: 70.00
+Successfully imported expense. Gas Home, Amount: 350.20
+Successfully imported expense. Gas Office, Amount: 250.20
+Successfully imported expense. Electricity Office, Amount: 150.50
+Successfully imported expense. Water Office, Amount: 10.80
+Successfully imported expense. Gas Summer House, Amount: 50.50
+Successfully imported expense. Electricity Summer House, Amount: 27.50
+Successfully imported expense. Water Summer House, Amount: 5.70
+Successfully imported expense. Internet Summer House, Amount: 20.00
+Successfully imported expense. Security Summer House, Amount: 30.00
+Successfully imported expense. Electricity Home, Amount: 120.50
+Successfully imported expense. Water Home, Amount: 50.50
+Successfully imported expense. Internet Home, Amount: 40.00
+Successfully imported expense. Internet Office, Amount: 70.00

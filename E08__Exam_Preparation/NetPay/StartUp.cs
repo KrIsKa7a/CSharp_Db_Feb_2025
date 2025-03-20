@@ -11,12 +11,12 @@
         {
             using NetPayContext context = new NetPayContext();
 
-            ResetDatabase(context, shouldDropDatabase: false);
+            ResetDatabase(context, shouldDropDatabase: true);
 
             object projectDir = GetProjectDirectory();
 
-            //ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
-            //ExportEntities(context, projectDir + @"ExportResults/");
+            ImportEntities(context, projectDir + @"Datasets/", projectDir + @"ImportResults/");
+            ExportEntities(context, projectDir + @"ExportResults/");
 
             using IDbContextTransaction transaction = context.Database.BeginTransaction();
             transaction.Rollback();
@@ -37,16 +37,16 @@
 
         private static void ExportEntities(NetPayContext context, string exportDir)
         {
-            string HouseholdsHavingExpensesToPayWithAllUnpaidExpences =
+            string householdsHavingExpensesToPayWithAllUnpaidExpences =
                 DataProcessor.Serializer.ExportHouseholdsWhichHaveExpensesToPay(context);
 
-            Console.WriteLine(HouseholdsHavingExpensesToPayWithAllUnpaidExpences);
+            Console.WriteLine(householdsHavingExpensesToPayWithAllUnpaidExpences);
             File.WriteAllText(exportDir + "Actual-Result-ExportHouseholds.xml", HouseholdsHavingExpensesToPayWithAllUnpaidExpences);
 
-            string ServicesWithSuppliers =
+            string servicesWithSuppliers =
                 DataProcessor.Serializer.ExportAllServicesWithSuppliers(context);
 
-            Console.WriteLine(ServicesWithSuppliers);
+            Console.WriteLine(servicesWithSuppliers);
             File.WriteAllText(exportDir + "Actual-Result-ExportServicesWithSuppliers.json", ServicesWithSuppliers);
         }
 

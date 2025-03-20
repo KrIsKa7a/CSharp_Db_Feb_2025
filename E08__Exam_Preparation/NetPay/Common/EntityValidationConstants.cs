@@ -21,8 +21,12 @@
             public const int ExpenseNameMaxLength = 50;
 
             public const decimal AmountMinValue = 0.01m;
+            public const string AmountMinValueStr = "0.01";
             public const decimal AmountMaxValue = 100_000m;
+            public const string AmountMaxValueStr = "100000";
             public const string AmountColumnType = "decimal(18,2)";
+
+            public const string DueDateFormat = "yyyy-MM-dd";
         }
 
         public static class Service
