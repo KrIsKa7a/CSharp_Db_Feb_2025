@@ -1,0 +1,54 @@
+Successfully imported household. Contact person: Alexander Ivanov
+Successfully imported household. Contact person: Vasil Dimitrov
+Invalid data format!
+Invalid data format!
+Successfully imported household. Contact person: Georgi Nikolov
+Successfully imported household. Contact person: Borislav Petrov
+Successfully imported household. Contact person: Dimitar Stoyanov
+Invalid data format!
+Invalid data format!
+Successfully imported household. Contact person: Emil Todorov
+Successfully imported household. Contact person: Ivan Hristov
+Successfully imported household. Contact person: Hristo Marinov
+Successfully imported household. Contact person: Kiril Georgiev
+Successfully imported household. Contact person: Atanas Iliev
+Successfully imported household. Contact person: Blagoy Dimitrov
+Invalid data format!
+Invalid data format!
+Successfully imported household. Contact person: Vladimir Ivanov
+Successfully imported household. Contact person: Kostadin Nikolov
+Successfully imported household. Contact person: Lazar Kirov
+Invalid data format!
+Successfully imported household. Contact person: Mihail Georgiev
+Successfully imported household. Contact person: Nikolay Petkov
+Successfully imported household. Contact person: Ognyan Popov
+Successfully imported household. Contact person: Zahari Zlatev
+Successfully imported household. Contact person: Anton Kolev
+Successfully imported household. Contact person: Bozhidar Rusev
+Successfully imported household. Contact person: Ventsislav Marinov
+Successfully imported household. Contact person: Pavel Iliev
+Successfully imported household. Contact person: Rosen Tsvetkov
+Successfully imported household. Contact person: Simeon Stefanov
+Successfully imported household. Contact person: Lyubomir Angelov
+Successfully imported household. Contact person: Martin Popov
+Successfully imported household. Contact person: Nikolay Zlatev
+Successfully imported household. Contact person: Petar Kolev
+Successfully imported household. Contact person: Radoslav Rusev
+Successfully imported household. Contact person: Stanislav Tsvetkov
+Successfully imported household. Contact person: Todor Pavlov
+Error! Data duplicated.
+Successfully imported household. Contact person: Viktor Hristov
+Error! Data duplicated.
+Successfully imported household. Contact person: Yordan Stefanov
+Successfully imported household. Contact person: Zdravko Yanev
+Successfully imported household. Contact person: Galin Todorov
+Successfully imported household. Contact person: Hristo Petrov
+Successfully imported household. Contact person: Ivan Dimitrov
+Error! Data duplicated.
+Successfully imported household. Contact person: Teodor Yordanov
+Successfully imported household. Contact person: Valentin Ivanov
+Successfully imported household. Contact person: Yasen Angelov
+Successfully imported household. Contact person: Gavril Stoyanov
+Successfully imported household. Contact person: Galina Stoyanova
+Successfully imported household. Contact person: Kaloyan Pavlov
+Successfully imported household. Contact person: Lyuben Hristov

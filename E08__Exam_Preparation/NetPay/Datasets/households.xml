@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Households>
+	<Household phone="+144/123-123456">
+		<ContactPerson>Alexander Ivanov</ContactPerson>
+		<Email>alexander.ivanov@example.com</Email>
+	</Household>
+	<Household phone="+144/124-123457">
+		<ContactPerson>Vasil Dimitrov</ContactPerson>
+		<Email>vasil.dimitrov@example.com</Email>
+	</Household>
+	<Household phone="+166/124-166457">
+		<ContactPerson>Dimi</ContactPerson>
+		<Email>tooShortName@example.com</Email>
+	</Household>
+	<Household phone="+199/124-166457">
+		<ContactPerson>TooLongName ThatWillNotBeInsertedDueToLenghtDatabaseConstarints</ContactPerson>
+		<Email>v.dimitrova@example.com</Email>
+	</Household>
+	<Household phone="+144/125-123458">
+		<ContactPerson>Georgi Nikolov</ContactPerson>
+		<Email>georgi.nikolov@example.com</Email>
+	</Household>
+	<Household phone="+144/126-123459">
+		<ContactPerson>Borislav Petrov</ContactPerson>
+		<Email>borislav.petrov@example.com</Email>
+	</Household>
+	<Household phone="+144/111-123456">
+		<ContactPerson>Dimitar Stoyanov</ContactPerson>
+		<Email>dimitar.stoyanov@example.com</Email>
+	</Household>
+	<Household phone="+144/122-123456">
+		<ContactPerson>PersonWith TooShortMail</ContactPerson>
+		<Email>e@e.t</Email>
+	</Household>
+	<Household phone="+333/122-123456">
+		<ContactPerson>Emil Todorov</ContactPerson>
+		<Email>tooLongMailThatWillCauseErrorBecauseOfEMailLengthRestrictions@exampleexampleexample.comcom</Email>
+	</Household>
+	<Household phone="+909/122-123456">
+		<ContactPerson>Emil Todorov</ContactPerson>
+		<Email>emil.todorov@example.com</Email>
+	</Household>
+	<Household phone="+144/222-123456">
+		<ContactPerson>Ivan Hristov</ContactPerson>
+		<Email>ivan.hristov@example.com</Email>
+	</Household>
+	<Household phone="+144/333-123456">
+		<ContactPerson>Hristo Marinov</ContactPerson>
+		<Email>hristo.marinov@example.com</Email>
+	</Household>
+	<Household phone="+155/123-123456">
+		<ContactPerson>Kiril Georgiev</ContactPerson>
+		<Email>kiril.georgiev@example.com</Email>
+	</Household>
+	<Household phone="+132/123-123456">
+		<ContactPerson>Atanas Iliev</ContactPerson>
+		<Email>atanas.iliev@example.com</Email>
+	</Household>
+	<Household phone="+144/345-123456">
+		<ContactPerson>Blagoy Dimitrov</ContactPerson>
+		<Email>blagoy.dimitrov@example.com</Email>
+	</Household>
+	<Household phone="+144/345-1234561">
+		<ContactPerson>Blagoy Rimitrov</ContactPerson>
+		<Email>blagoy.rimitrov@example.com</Email>
+	</Household>
+	<Household phone="+144/345-12345">
+		<ContactPerson>Blagoy Mimitrov</ContactPerson>
+		<Email>blagoy.mimitrov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-133356">
+		<ContactPerson>Vladimir Ivanov</ContactPerson>
+		<Email>vladimir.ivanov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-128856">
+		<ContactPerson>Kostadin Nikolov</ContactPerson>
+		<Email>kostadin.nikolov@example.com</Email>
+	</Household>
+	<Household phone="+144/993-123456">
+		<ContactPerson>Lazar Kirov</ContactPerson>
+		<Email>lazar.kirov@example.com</Email>
+	</Household>
+	<Household phone="+144/9999123456">
+		<ContactPerson>Lazar Tirov</ContactPerson>
+		<Email>lazar.tirov@example.com</Email>
+	</Household>
+	<Household phone="+144/999-123456">
+		<ContactPerson>Mihail Georgiev</ContactPerson>
+		<Email>mihail.georgiev@example.com</Email>
+	</Household>
+	<Household phone="+144/123-127776">
+		<ContactPerson>Nikolay Petkov</ContactPerson>
+		<Email>nikolay.petkov@example.com</Email>
+	</Household>
+	<Household phone="+144/786-123456">
+		<ContactPerson>Ognyan Popov</ContactPerson>
+		<Email>ognyan.popov@example.com</Email>
+	</Household>
+	<Household phone="+144/678-123456">
+		<ContactPerson>Zahari Zlatev</ContactPerson>
+		<Email>zahari.zlatev@example.com</Email>
+	</Household>
+	<Household phone="+144/123-126786">
+		<ContactPerson>Anton Kolev</ContactPerson>
+		<Email>anton.kolev@example.com</Email>
+	</Household>
+	<Household phone="+555/123-123456">
+		<ContactPerson>Bozhidar Rusev</ContactPerson>
+		<Email>bozhidar.rusev@example.com</Email>
+	</Household>
+	<Household phone="+444/123-123456">
+		<ContactPerson>Ventsislav Marinov</ContactPerson>
+		<Email>ventsislav.marinov@example.com</Email>
+	</Household>
+	<Household phone="+111/123-123456">
+		<ContactPerson>Pavel Iliev</ContactPerson>
+		<Email>pavel.iliev@example.com</Email>
+	</Household>
+	<Household phone="+232/123-123456">
+		<ContactPerson>Rosen Tsvetkov</ContactPerson>
+		<Email>rosen.tsvetkov@example.com</Email>
+	</Household>
+	<Household phone="+323/123-123456">
+		<ContactPerson>Simeon Stefanov</ContactPerson>
+		<Email>simeon.stefanov@example.com</Email>
+	</Household>
+	<Household phone="+144/323-123456">
+		<ContactPerson>Lyubomir Angelov</ContactPerson>
+		<Email>lyubomir.angelov@example.com</Email>
+	</Household>
+	<Household phone="+144/331-123456">
+		<ContactPerson>Martin Popov</ContactPerson>
+		<Email>martin.popov@example.com</Email>
+	</Household>
+	<Household phone="+144/441-123456">
+		<ContactPerson>Nikolay Zlatev</ContactPerson>
+		<Email>nikolay.zlatev@example.com</Email>
+	</Household>
+	<Household phone="+144/556-123456">
+		<ContactPerson>Petar Kolev</ContactPerson>
+		<Email>petar.kolev@example.com</Email>
+	</Household>
+	<Household phone="+144/123-125576">
+		<ContactPerson>Radoslav Rusev</ContactPerson>
+		<Email>radoslav.rusev@example.com</Email>
+	</Household>
+	<Household phone="+144/123-909456">
+		<ContactPerson>Stanislav Tsvetkov</ContactPerson>
+		<Email>stanislav.tsvetkov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-100456">
+		<ContactPerson>Todor Pavlov</ContactPerson>
+		<Email>todor.pavlov@example.com</Email>
+	</Household>
+	<Household phone="+000/123-100456">
+		<ContactPerson>Todor Pavlov</ContactPerson>
+		<Email>todor.diffpavlov@example.com</Email>
+	</Household>
+	<Household phone="+144/100-123456">
+		<ContactPerson>Viktor Hristov</ContactPerson>
+		<Email>viktor.hristov@example.com</Email>
+	</Household>
+	<Household phone="+144/100-123456">
+		<ContactPerson>Viktor DiffHristov</ContactPerson>
+		<Email>viktor.diffhristov@example.com</Email>
+	</Household>
+	<Household phone="+104/123-123456">
+		<ContactPerson>Yordan Stefanov</ContactPerson>
+		<Email>yordan.stefanov@example.com</Email>
+	</Household>
+	<Household phone="+144/103-123456">
+		<ContactPerson>Zdravko Yanev</ContactPerson>
+		<Email>zdravko.yanev@example.com</Email>
+	</Household>
+	<Household phone="+144/123-123056">
+		<ContactPerson>Galin Todorov</ContactPerson>
+		<Email>galin.todorov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-003456">
+		<ContactPerson>Hristo Petrov</ContactPerson>
+		<Email>hristo.petrov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-093456">
+		<ContactPerson>Ivan Dimitrov</ContactPerson>
+		<Email>ivan.dimitrov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-999999">
+		<ContactPerson>Ivan DiffDimitrov</ContactPerson>
+		<Email>ivan.dimitrov@example.com</Email>
+	</Household>
+	<Household phone="+144/083-123456">
+		<ContactPerson>Teodor Yordanov</ContactPerson>
+		<Email>teodor.yordanov@example.com</Email>
+	</Household>
+	<Household phone="+144/803-123456">
+		<ContactPerson>Valentin Ivanov</ContactPerson>
+		<Email>valentin.ivanov@example.com</Email>
+	</Household>
+	<Household phone="+144/887-123456">
+		<ContactPerson>Yasen Angelov</ContactPerson>
+		<Email>yasen.angelov@example.com</Email>
+	</Household>
+	<Household phone="+144/123-883456">
+		<ContactPerson>Gavril Stoyanov</ContactPerson>
+		<Email>gavril.stoyanov@example.com</Email>
+	</Household>
+	<Household phone="+144/111-223344">
+		<ContactPerson>Galina Stoyanova</ContactPerson>
+	</Household>
+	<Household phone="+144/424-123456">
+		<ContactPerson>Kaloyan Pavlov</ContactPerson>
+		<Email>kaloyan.pavlov@example.com</Email>
+	</Household>
+	<Household phone="+144/484-123456">
+		<ContactPerson>Lyuben Hristov</ContactPerson>
+		<Email>lyuben.hristov@example.com</Email>
+	</Household>
+</Households>

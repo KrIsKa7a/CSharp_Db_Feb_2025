@@ -1,0 +1,966 @@
+[
+  {
+    "ExpenseName": "Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 1,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 1,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Not Paid",
+    "HouseholdId": 1,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 2,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 10.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 2,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Security Home",
+    "Amount": 50.00,
+    "DueDate": "2024-08-01",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 2,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-18-10",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 2,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 3,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 3,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Office",
+    "Amount": 150.50,
+    "DueDate": "2024-08",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 4,
+    "ServiceId": 1
+  },
+
+  {
+    "ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 4,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 5,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 5,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": -5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 5,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Summer House",
+    "Amount": 20.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 6,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Digital TV Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 6,
+    "ServiceId": 4
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 7,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 7,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 7,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Digital TV Home",
+    "Amount": -33.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 7,
+    "ServiceId": 4
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 8,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 8,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 10.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 9,
+    "ServiceId": 2
+  },
+  {
+    "Amount": 50.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 9,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 10,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 11,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 12,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Office",
+    "Amount": 150.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 12,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 13,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-06-25",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 13,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 14,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 14,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Summer House",
+    "Amount": 20.00,
+    "DueDate": "24-07-15",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 15,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 16,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home",
+    "DueDate": "2024-08-03",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 16,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-17",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 17,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 18,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 18,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 10.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 19,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Security Home",
+    "Amount": 50.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 20,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 20,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 20,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 21,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "abcd",
+    "Amount": 150.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 21,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "PaymentStatus": "Paid",
+    "HouseholdId": 21,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 21,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 22,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 22,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Cell Phone Personal",
+    "Amount": 20.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 22,
+    "ServiceId": 5
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 23,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home Electricity Home Electricity Home Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 24,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 24,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 24,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 24,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 10.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 25,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Security Home",
+    "Amount": 50.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 25,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Paid",
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 26,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 27,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Office",
+    "Amount": 150.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 27,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 27,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 28,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdued",
+    "HouseholdId": 28,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 28,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Summer House",
+    "Amount": 20.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 28,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 28,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 28,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 29,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 29
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 30,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Digital TV Home",
+    "Amount": 20.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 30,
+    "ServiceId": 4
+  },
+  {
+    "ExpenseName": "Security Home",
+    "Amount": 50.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 31,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 31,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 31,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 32,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Office",
+    "Amount": 150.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 32,
+    "ServiceId": 1
+  },
+  {
+"ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 32,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 32,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 33,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 33,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Summer House",
+    "Amount": 20.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 33,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 33,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 34,
+    "ServiceId": 1
+  },
+  {
+    "Expence Name": "Digital TV Office",
+    "Amount": 20.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 34,
+    "ServiceId": 4
+  },
+  {
+    "ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 34,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 35,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 35,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 10.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 35,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Security Home",
+    "Amount": 50.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 36,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 36,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 36,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Telephony",
+    "Amount": 250.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 37,
+    "ServiceId": 5
+  },
+  {
+"ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 37,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Office",
+    "Amount": 150.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 37,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 37,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 37,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 38,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 38,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Summer House",
+    "Amount": 20.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 38,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Telephony",
+    "Amount": 80.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 39,
+    "ServiceId": 5
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-08-05",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 39,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 40,
+    "ServiceId": 1
+  },
+  {
+"ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 40,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 40,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 40,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 10.50,
+    "DueDate": "2024-07-20",
+    "PaymentStatus": "Expired",
+    "HouseholdId": 41,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Security Home",
+    "Amount": 50.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 41,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Security Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-10",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 41,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Gas Home",
+    "Amount": 350.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 42,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Gas Office",
+    "Amount": 250.20,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 42,
+    "ServiceId": 7
+  },
+  {
+"ExpenseName": "Electricity Office",
+    "Amount": 150.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 42,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Office",
+    "Amount": 10.80,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 42,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Gas Summer House",
+    "Amount": 50.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 42,
+    "ServiceId": 7
+  },
+  {
+    "ExpenseName": "Electricity Summer House",
+    "Amount": 27.50,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Overdue",
+    "HouseholdId": 43,
+    "ServiceId": 1
+  },
+  {
+    "ExpenseName": "Water Summer House",
+    "Amount": 5.70,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 43,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Summer House",
+    "Amount": 20.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 43,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Security Summer House",
+    "Amount": 30.00,
+    "DueDate": "2024-07-25",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 43,
+    "ServiceId": 6
+  },
+  {
+    "ExpenseName": "Electricity Home",
+    "Amount": 120.50,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 43,
+    "ServiceId": 1
+  },
+  {
+"ExpenseName": "Water Home",
+    "Amount": 50.50,
+    "DueDate": "2024-08-20",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 44,
+    "ServiceId": 2
+  },
+  {
+    "ExpenseName": "Internet Home",
+    "Amount": 40.00,
+    "DueDate": "2024-08-25",
+    "PaymentStatus": "Unpaid",
+    "HouseholdId": 44,
+    "ServiceId": 3
+  },
+  {
+    "ExpenseName": "Internet Office",
+    "Amount": 70.00,
+    "DueDate": "2024-08-15",
+    "PaymentStatus": "Paid",
+    "HouseholdId": 44,
+    "ServiceId": 3
+  }
+]
