@@ -9,9 +9,9 @@
     {
         static void Main(string[] args)
         {
-            NetPayContext context = new NetPayContext();
+            using NetPayContext context = new NetPayContext();
 
-            ResetDatabase(context, shouldDropDatabase: true);
+            ResetDatabase(context, shouldDropDatabase: false);
 
             object projectDir = GetProjectDirectory();
 
